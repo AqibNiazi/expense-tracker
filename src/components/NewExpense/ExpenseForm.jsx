@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./ExpenseForm.module.css";
-const ExpenseForm = ({ onSaveExpenseData }) => {
+const ExpenseForm = ({ onSaveExpenseData, onCancel }) => {
   // const [userInput, setuserInput] = useState({
   //   enteredTitle: "",                                          //state object
   //   enteredAmount: "",
@@ -13,7 +13,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
     e.preventDefault();
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
     onSaveExpenseData(expenseData);
@@ -68,7 +68,10 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
           />
         </div>
       </div>
-      <div className="new-expense__actions">
+      <div className={styles["new-expense__actions"]}>
+        <button type="button" onClick={onCancel}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
