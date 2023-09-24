@@ -21,6 +21,7 @@ const ExpenseForm = ({ onSaveExpenseData, onCancel }) => {
     setEnteredAmount("");
     setEnteredDate("");
   };
+
   return (
     <form onSubmit={submitHandler}>
       <div className={styles["new-expense__controls"]}>
